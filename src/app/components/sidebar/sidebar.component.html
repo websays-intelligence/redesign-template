@@ -1,3 +1,4 @@
+<!-- Sidebar Container -->
 <div class="sidebar" [class.collapsed]="isCollapsed">
   <!-- Websays Logo -->
   <div class="logo">
@@ -7,7 +8,6 @@
   <!-- Sidebar Navigation -->
   <ul class="nav flex-column">
     <li *ngFor="let item of sidebarItems" class="nav-item">
-      <!-- Main Menu Item -->
       <a href="#" class="nav-link" 
          [class.selected]="openMenu === item.label" 
          (click)="toggleMenu(item)">
@@ -15,20 +15,21 @@
         <span *ngIf="!isCollapsed">{{ item.label }}</span>
       </a>
 
-      <!-- Submenu (only appears if menu is open) -->
+      <!-- Submenu -->
       <ul *ngIf="openMenu === item.label && item.children.length > 0" class="submenu">
         <li *ngFor="let subItem of item.children">
           <a href="#" class="sub-link" 
              [class.active]="selectedSubMenu === subItem.label" 
              (click)="selectSubMenu(subItem.label)">
-            <span>{{ subItem.label }}</span>
+            <i class="bi" [ngClass]="subItem.icon"></i>
+            <span *ngIf="!isCollapsed">{{ subItem.label }}</span>
           </a>
         </li>
       </ul>
     </li>
   </ul>
 
-  <!-- Footer Items (Settings & Logout) -->
+  <!-- Footer Items -->
   <ul class="nav flex-column footer">
     <li *ngFor="let item of footerItems" class="nav-item">
       <a href="#" class="nav-link">
@@ -38,7 +39,7 @@
     </li>
   </ul>
 
-  <!-- Toggle Sidebar Button -->
+  <!-- Always Visible Toggle Button -->
   <button class="toggle-btn" (click)="toggleSidebar()">
     <i class="bi" [ngClass]="isCollapsed ? 'bi-chevron-right' : 'bi-chevron-left'"></i>
   </button>

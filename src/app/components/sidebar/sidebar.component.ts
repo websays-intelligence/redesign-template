@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarComponent {
   isCollapsed = false;
-  openMenu: string | null = null; // Tracks open menu
-  selectedSubMenu: string | null = null; // Tracks active submenu
+  openMenu: string | null = null;
+  selectedSubMenu: string | null = null;
 
   sidebarItems = [
     {
@@ -19,15 +19,13 @@ export class SidebarComponent {
       label: 'Mentions',
       route: '/mentions',
       children: [
-        { label: 'Conversation Mode', route: '/conversation' },
-        { label: 'Compact Mode', route: '/compact' },
+        { icon: 'bi-chat-left-text', label: 'Conversation Mode', route: '/conversation' },
+        { icon: 'bi-grid-3x3-gap', label: 'Compact Mode', route: '/compact' },
+        { icon: 'bi-columns', label: 'Bloc Mode', route: '/bloc' },
+        { icon: 'bi-square', label: 'Expanded Mode', route: '/expanded' }
       ]
     },
-    { icon: 'bi-people', label: 'Communities', route: '/communities', children: [
-      { label: 'Bloc Mode', route: '/bloc' },
-      { label: 'Expanded Mode', route: '/expanded' }
-   
-    ] },
+    { icon: 'bi-people', label: 'Communities', route: '/communities', children: [] },
     { icon: 'bi-bar-chart', label: 'Comparisons', route: '/comparisons', children: [] },
     { icon: 'bi-geo-alt', label: 'Maps', route: '/maps', children: [] },
     { icon: 'bi-graph-up', label: 'Reports', route: '/reports', children: [] }
@@ -44,11 +42,11 @@ export class SidebarComponent {
 
   toggleMenu(item: any) {
     if (this.openMenu === item.label) {
-      this.openMenu = null; // Close menu if already open
-      this.selectedSubMenu = null; // Reset submenu selection
+      this.openMenu = null;
+      this.selectedSubMenu = null;
     } else {
-      this.openMenu = item.label; // Open clicked menu
-      this.selectedSubMenu = null; // Reset submenu when switching menu
+      this.openMenu = item.label;
+      this.selectedSubMenu = null;
     }
   }
 
