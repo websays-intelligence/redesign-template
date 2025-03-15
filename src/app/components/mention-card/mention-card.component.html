@@ -1,0 +1,12 @@
+<!-- src/app/components/mention-card/mention-card.component.html -->
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ mention.username }}</mat-card-title>
+      <mat-card-subtitle>{{ mention.date }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="mention.image" alt="Post image">
+    <mat-card-content>
+      <p>{{ mention.text }}</p>
+    </mat-card-content>
+  </mat-card>
+  

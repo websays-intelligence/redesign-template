@@ -1,0 +1,28 @@
+<div class="filters-container d-flex align-items-center justify-content-between">
+  <div class="filters d-flex">
+    <div class="dropdown" *ngFor="let filter of [
+      { label: 'profile', value: selectedProfile, options: profiles },
+      { label: 'from', value: selectedDateRange, options: dateRanges },
+      { label: 'on', value: selectedSource, options: sources },
+      { label: 'with', value: selectedFilter, options: filters },
+      { label: 'sorted by', value: selectedSorting, options: sortingOptions },
+      { label: 'folder', value: selectedFolder, options: folders }
+    ]">
+      <button class="btn dropdown-toggle filter-btn" type="button" data-bs-toggle="dropdown">
+        {{ filter.label }}: {{ filter.value }}
+      </button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let option of filter.options">
+          <button class="dropdown-item" (click)="filter.value = option">{{ option }}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mentions-count d-flex align-items-center">
+    <span>{{ mentionsCount | number }} mentions</span>
+    <button class="btn btn-icon">
+      <i class="bi bi-pie-chart-fill"></i>
+    </button>
+  </div>
+</div>

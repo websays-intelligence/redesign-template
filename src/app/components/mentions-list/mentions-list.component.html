@@ -1,0 +1,22 @@
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let mention of mentions">
+        <div class="card shadow-sm">
+          <img [src]="mention.image" class="card-img-top" alt="Mention Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ mention.username }}</h5>
+            <p class="card-text">{{ mention.text }}</p>
+            <p class="text-muted">Followers: {{ mention.followers }}</p>
+            <p class="small text-muted">{{ mention.date }} | {{ mention.time }}</p>
+            <p>
+              <span *ngFor="let hashtag of mention.hashtags" class="badge bg-primary me-1">
+                {{ hashtag }}
+              </span>
+            </p>
+            <button class="btn btn-outline-primary">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

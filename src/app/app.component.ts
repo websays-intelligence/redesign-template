@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MentionsListComponent } from './components/mentions-list/mentions-list.component';
+import { FiltersComponent } from './components/filters/filters.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  imports: [HeaderComponent, SidebarComponent, MentionsListComponent,FiltersComponent]
 })
 export class AppComponent {
-  title = 'redesign-template';
+  title = 'websays-dashboard';
 }
