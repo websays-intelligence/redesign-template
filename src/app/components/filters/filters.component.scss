@@ -59,10 +59,14 @@
   border: none;
   color: white;
   font-size: 20px;
-  margin-left: 15px; // Icon positioned at the end
+  margin-left: 15px;
   padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-icon:hover {
-  color: black;
+.btn-icon i {
+  font-size: 22px; // Make sure icon size is visible
 }
+
